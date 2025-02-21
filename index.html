@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGO Offer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .offer-box {
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: left;
+            position: relative;
+            cursor: pointer;
+        }
+        .offer-box.selected {
+            border-color: #28a745;
+            background: #e6f4ea;
+        }
+        .discount {
+            background: #28a745;
+            color: white;
+            font-size: 12px;
+            padding: 3px 7px;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+        .most-popular {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #28a745;
+            color: white;
+            font-size: 12px;
+            padding: 3px 7px;
+            border-radius: 5px;
+        }
+        .price {
+            float: right;
+            font-weight: bold;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: grey;
+            font-size: 12px;
+        }
+        .options {
+            display: none;
+            margin-top: 10px;
+        }
+        .selected .options {
+            display: block;
+        }
+        .free-delivery {
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .cart-btn {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Bundle and Save</h2>
+        
+        <div class="offer-box" onclick="selectOffer(this, 10)">
+            <input type="radio" name="offer"> <b>1 Unit</b> <span class="discount">10% Off</span>
+            <span class="price">$10.00 USD <span class="original-price">$24.00 USD</span></span>
+            <div class="options">
+                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Colour: <select><option>Black</option><option>White</option><option>Red</option></select></label>
+                <br>
+                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Colour: <select><option>Black</option><option>White</option><option>Red</option></select></label>
+            </div>
+        </div>
+        
+        <div class="offer-box" onclick="selectOffer(this, 18)">
+            <span class="most-popular">MOST POPULAR</span>
+            <input type="radio" name="offer"> <b>2 Unit</b> <span class="discount">20% Off</span>
+            <span class="price">$18.00 USD <span class="original-price">$24.00 USD</span></span>
+            <div class="options">
+                <label>#1 Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Colour: <select><option>Black</option><option>White</option><option>Red</option></select></label>
+                <br>
+                <label>#2 Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Colour: <select><option>Black</option><option>White</option><option>Red</option></select></label>
+            </div>
+        </div>
+        
+        <div class="offer-box" onclick="selectOffer(this, 24)">
+            <input type="radio" name="offer"> <b>3 Unit</b> <span class="discount">30% Off</span>
+            <span class="price">$24.00 USD <span class="original-price">$24.00 USD</span></span>
+            <div class="options">
+                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Colour: <select><option>Black</option><option>White</option><option>Red</option></select></label>
+                <br>
+               <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Colour: <select><option>Black</option><option>White</option><option>Red</option></select></label>
+            </div>
+        </div>
+        
+        <div class="free-delivery">Free Delivery</div>
+        <div class="total">Total: <span id="total-price">$10.00 USD</span></div>
+        
+        <button class="cart-btn">+ Add to Cart</button>
+    </div>
+
+    <script>
+        function selectOffer(element, price) {
+            document.querySelectorAll('.offer-box').forEach(box => {
+                box.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            document.getElementById('total-price').innerText = `$${price}.00 USD`;
+        }
+    </script>
+</body>
+</html>
