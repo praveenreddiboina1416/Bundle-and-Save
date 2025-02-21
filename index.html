@@ -89,11 +89,21 @@
             cursor: pointer;
             font-size: 16px;
         }
+        .FT-card{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 10PX;
+        }
+        .sponserd{
+            display: flex;
+            justify-content: end;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2 class="title">Bundle and Save</h2>
+        <h2 class="title">Bundle & Save</h2>
         
         <div class="offer-box" onclick="selectOffer(this, 10)">
             <input type="radio" name="offer"> <b>1 Unit</b> <span class="discount">10% Off</span>
@@ -132,11 +142,15 @@
             </div>
         </div>
         
+        <div class="FT-card">
         <div class="free-delivery">Free Delivery</div>
         <div class="total">Total: <span id="total-price">$10.00 USD</span></div>
+        </div>
         
         <button class="cart-btn">+ Add to Cart</button>
+        <p class="sponserd"> @ Powerd by pamper</p>
     </div>
+   
 
     <script>
         function selectOffer(element, price) {
